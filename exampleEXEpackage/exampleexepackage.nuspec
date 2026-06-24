@@ -7,19 +7,21 @@
 <!--Here is the start of the metadata section. This section should contain all of the metadata your package needs.-->
   <metadata>
 
-  <!-- The ID is the package name, and should be lowercase and match the file name. No spaces or special characters (dashes are fine) -->
+  	<!-- The ID is the package name, and should be lowercase and match the file name. No spaces or special characters (dashes are fine) -->
     <id>example-exe-package</id>
 
-	<!-- The version number should be incremented with each edit for the update function to work correctly. If you try to push an update to the server with a duplicate version number, you will get an error. -->
-    <version>1.0.0</version>
+	<!-- The version number should be incremented with each edit for the update function to work correctly. If you try to push an update to the server 	with a duplicate version number, you will get an error. -->
+    	<version>1.0.0</version>
 
 	<!-- This is the package author name, which can be an individual or your MSP name, and can be a handy future reference. -->
-    <authors>YourName</authors>
+    	<authors>ThirdPatch</authors>
 
-	<!-- The description describes the package, and is likewise a handy reference, especially when you're trying to sort through multiple packages in the future. -->
-    <description>This is an EXE example package.</description>
+	<!-- The description describes the package, and is likewise a handy reference, especially when you're trying to sort through multiple packages in 	the future. -->
+    	<description>This is an EXE example package.</description>
 
-	<!-- Dependencies are optional, but can be powerful. For example, the software in the package needs a .Net framework version, it will automatically be installed if configured as a dependency. -->
+	<!-- Dependencies are optional, but can be powerful. For example, the software in the package needs a .Net framework version, it will automatically 	be installed if configured as a dependency. -->
+
+	<!--This block can be deleted if no dependencies are used.-->
 	<dependencies>
       <dependency id="chocolatey" version="0.9.8.21" />
     </dependencies>
