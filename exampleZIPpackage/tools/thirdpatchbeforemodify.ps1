@@ -6,7 +6,7 @@
 		$ErrorActionPreference = 'Stop'
 
 	# This specifies the package name
-	$packageName = 'example-zip-package'
+		$packageName = 'example-zip-package'
 
 	# This is the directory where the ZIP contents were extracted when installed.
 		$installDir = Join-Path $env:ProgramData 'ThirdPatch\ExampleZipPackage'

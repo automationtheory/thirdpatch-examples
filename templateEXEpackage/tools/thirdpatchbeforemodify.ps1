@@ -14,7 +14,7 @@
 	# Run before the package is modified.
 		Write-Host "$packageName before modify has started..."
 
-	#This is where custom checks can be implemented before modifying the package.
+	# This is where custom checks can be implemented before modifying the package.
 
 	# For example, a package may want to stop running applications or services here, or ensure there is enough disk space to modify/update the package.
 

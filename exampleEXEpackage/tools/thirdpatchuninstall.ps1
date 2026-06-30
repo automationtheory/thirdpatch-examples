@@ -12,7 +12,7 @@
 	# Replace this with the real application's uninstall path.
 		$uninstallerFile = Join-Path $env:ProgramFiles 'ExampleApplication\uninstall.exe'
 
-	#Uninstall the EXE package.
+	# Uninstall the EXE package.
 		Write-Host "$packageName cleanup started..."
 
 	# Check if the uninstaller file exists.

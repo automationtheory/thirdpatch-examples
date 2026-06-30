@@ -11,6 +11,9 @@
 	# This specifies the package name.
 		$packageName = 'your_package_name'
 
+	# Define where the tools folder is.
+		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+
 	# This specifies the EXE file included in the "tools" folder. It can be replaced with a real application EXE.
 		$exeFile = Join-Path $toolsDir 'REPLACE_ME.exe'
 

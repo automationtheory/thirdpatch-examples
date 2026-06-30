@@ -13,13 +13,13 @@
 	# can be modified to whatever path you installed the package at. 
 		$installDir = Join-Path $env:ProgramData 'ThirdPatch\ExampleZipPackage'
 
-	#Uninstall the ZIP file.
+	# Uninstall the ZIP file.
 		Write-Host "$packageName cleanup started..."
 
-	#Check if the installation directory exists.
+	# Check if the installation directory exists.
 		if (Test-Path $installDir)
 		{
-			# If it does, then remove everything inside of the 'ThirdPatch\ExampleZipPackage' folder using -Recurse to 	# ensure everything 			# gets deleted properly. 
+			# If it does, then remove everything inside of the 'ThirdPatch\ExampleZipPackage' folder using -Recurse to ensure everything 				# gets deleted properly. 
 				Remove-Item $installDir -Recurse -Force
 
 			# Print success message.

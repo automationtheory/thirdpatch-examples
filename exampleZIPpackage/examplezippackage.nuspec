@@ -8,7 +8,7 @@
   <metadata>
 
   	<!-- The ID is the package name, and should be lowercase and match the file name. No spaces or special characters (dashes are fine) -->
-    <id>example-zip-package</id>
+    	<id>example-zip-package</id>
 
 	<!-- The version number should be incremented with each edit for the update function to work correctly. If you try to push an update to the server 	with a duplicate version number, you will get an error. -->
     	<version>1.0.0</version>
@@ -23,8 +23,8 @@
 
 	<!--This block can be deleted if no dependencies are used.-->
 	<dependencies>
-      <dependency id="chocolatey" version="0.9.8.21" />
-    </dependencies>
+		<dependency id="chocolatey" version="0.9.8.21" />
+   	</dependencies>
 
   </metadata>
 </package>

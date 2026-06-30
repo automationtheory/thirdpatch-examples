@@ -9,6 +9,9 @@
 	# This specifies the package name.
 		$packageName = 'example-exe-package'
 
+	# Define where the tools folder is.
+		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+
 	# This specifies the EXE file included in the "tools" folder. It can be replaced with a real application EXE.
 		$exeFile = Join-Path $toolsDir 'example.exe'
 
@@ -19,7 +22,7 @@
 			packageName = $packageName
 			fileType = 'exe'
 			file = $exeFile
-			# Please ensure you change the silentArgs to the arguments applicable to your EXE, since there are many 	# different silent 			# arguments that can be used depending on who created the EXE.
+			# Please ensure you change the silentArgs to the arguments applicable to your EXE, since there are many different silent 				# arguments that can be used depending on who created the EXE.
 			silentArgs = '/quiet /norestart'
 			validExitCodes = @(0, 3010)
 		} 

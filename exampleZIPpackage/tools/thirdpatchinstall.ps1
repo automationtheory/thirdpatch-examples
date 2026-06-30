@@ -26,6 +26,9 @@
 	# This specifies the package name.
 		$packageName = 'example-zip-package'
 
+	# Define where the tools folder is.
+		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+
 	#This specifies the ZIP file included in the "tools" folder. Right now, there is nothing inside of the ZIP folder for the sake of simplicity, but 	# the zip folder can be replaced with real application ZIP.
 		$zipFile = Join-Path $toolsDir 'example.zip'
 

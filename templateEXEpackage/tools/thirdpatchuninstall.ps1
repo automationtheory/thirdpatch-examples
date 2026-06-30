@@ -39,7 +39,7 @@
 
 		else 
 		{
-			Write-Host "Uninstaller not found."
+			Write-Host "Uninstaller not found: $uninstallerFile."
 		}
 
 

@@ -10,6 +10,9 @@
 	# This specifies the package name.
 		$packageName = 'example-msi-package'
 
+	# Define where the tools folder is.
+		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+
 	# This specifies the MSI file included in the "tools" folder. It must be replaced with a real application MSI.
 		$msiFile = Join-Path $toolsDir 'example.msi'
 

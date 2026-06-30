@@ -2,7 +2,7 @@
 
 
 
-	# This file is the installation file for the package. It is responsible for installing the MSI.
+	# This file is the installation file for the package. It is responsible for installing the MSI File.
 
 
 	# This specifies that we want the installation to stop if an error occurs.
@@ -10,6 +10,9 @@
 
 	# This specifies the package name.
 		$packageName = 'your_package_name'
+
+	# Define where the tools folder is.
+		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 
 	# This specifies the MSI file included in the "tools" folder. It must be replaced with a real application MSI.
 		$msiFile = Join-Path $toolsDir 'REPLACE_ME.msi'

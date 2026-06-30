@@ -10,8 +10,11 @@
 	# This specifies the package name.
 		$packageName = 'your-package-name'
 
-	#This specifies the MSI file included in the "tools" folder.
-	# Replace example.msi with the real application MSI.
+	# Define where the tools folder is.
+		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+
+	# This specifies the MSI file included in the "tools" folder.
+	# Replace REPLACE_ME.msi with the real application MSI.
 		$msiFile = Join-Path $toolsDir 'REPLACE_ME.msi'
 
 
@@ -40,7 +43,7 @@
 		}
 		else 
 		{
-			Write-Host "MSI file not found."
+			Write-Host "MSI file not found: $msiFile"
 		}
 
 

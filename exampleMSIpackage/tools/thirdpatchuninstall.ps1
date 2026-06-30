@@ -1,6 +1,7 @@
 # This file MUST be named chocolateyuninstall.ps1 or thirdpatchuninstall.ps1 and located in the \tools\ subfolder.
 
-	# This file is responsible for uninstalling the package. It is essentially the inverse of the installation 	# file, and is useful for more in-depth cleanup upon uninstalling the package.
+	# This file is responsible for uninstalling the package. It is essentially the inverse of the installation
+ 	# file, and is useful for more in-depth cleanup upon uninstalling the package.
 
 	# This specifies that we want the cleanup to stop if an error occurs.
 		$ErrorActionPreference = 'Stop'
@@ -8,12 +9,15 @@
 	# This specifies the package name.
 		$packageName = 'example-msi-package'
 
-	#This specifies the MSI file included in the "tools" folder.
+	# Define where the tools folder is.
+		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+
+	# This specifies the MSI file included in the "tools" folder.
 	# Replace example.msi with the real application MSI.
 		$msiFile = Join-Path $toolsDir 'example.msi'
 
 
-	#Uninstall the MSI package.
+	# Uninstall the MSI package.
 		Write-Host "$packageName cleanup started..."
 
 	# Check if the MSI file exists.
