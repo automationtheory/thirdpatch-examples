@@ -1,4 +1,4 @@
-﻿# ThirdPatch Examples and Templates
+﻿# ThirdPatch Templates
 
 ## What is ThirdPatch?
 ThirdPatch is an RMM-neutral third-party patching solution for MSPs with flat-rate pricing and support for custom applications. Because it works anywhere PowerShell can run, ThirdPatch integrates with multiple RMM platforms, including ConnectWise Automate, Atera, JumpCloud, and others.
@@ -9,11 +9,11 @@ A package is a NuGet file (essentially a ZIP archive) used to install and manage
 For more information on creating and configuring packages, see the ThirdPatch documentation:
 https://docs.thirdpartypatching.com/en/creating-packages
 
-This repository provides example packages for different application formats, along with editable templates that can be customized and used with ThirdPatch.
+This repository provides package templates for different application formats that can be customized and used with ThirdPatch.
 
-# Example Packages
+# Package Templates
 
-## ZIP Package
+## ZIP Package Template
 
 1. The `.nuspec` file contains package metadata, including version, name, and author information. This allows ThirdPatch to identify and deploy the package correctly.
 
@@ -23,11 +23,11 @@ This repository provides example packages for different application formats, alo
 
 4. The optional `thirdpatchbeforemodify.ps1` file performs checks before updates, removals, or other modifications. For ZIP packages, it verifies that the installation folder exists, but additional checks can be added as needed.
 
-5. Place the application ZIP file inside the `tools` folder alongside the scripts. Update the ZIP filename references in each script so the package can locate the correct file. For example, replace `"example.zip"` in `thirdpatchinstall.ps1` with your ZIP filename.
+5. Place the application ZIP file inside the `tools` folder alongside the scripts. Update the ZIP filename references in each script so the package can locate the correct file. For example, replace `"template.zip"` in `thirdpatchinstall.ps1` with your ZIP filename.
 
 ---
 
-## MSI Package
+## MSI Package Template
 
 1. The `.nuspec` file contains package metadata, including version, name, and author information. This file is the same regardless of application format.
 
@@ -37,11 +37,11 @@ This repository provides example packages for different application formats, alo
 
 4. The optional `thirdpatchbeforemodify.ps1` file performs checks before updates, removals, or other modifications. Custom checks, such as verifying disk space or dependencies, can be added.
 
-5. Place the MSI file inside the `tools` folder alongside the scripts. Update the MSI filename references in the scripts so the package can locate the correct file. For example, replace `"example.msi"` in `thirdpatchinstall.ps1` with your MSI filename.
+5. Place the MSI file inside the `tools` folder alongside the scripts. Update the MSI filename references in the scripts so the package can locate the correct file. For example, replace `"template.msi"` in `thirdpatchinstall.ps1` with your MSI filename.
 
 ---
 
-## EXE Package
+## EXE Package Template
 
 1. The `.nuspec` file contains package metadata, including version, name, and author information. This file is the same regardless of application format.
 
@@ -51,12 +51,12 @@ This repository provides example packages for different application formats, alo
 
 4. The optional `thirdpatchbeforemodify.ps1` file performs checks before updates, removals, or other modifications. Additional checks, such as verifying disk space or dependencies, can be added as needed.
 
-5. Place the EXE file inside the `tools` folder alongside the scripts. Update the EXE filename references in the scripts so the package can locate the correct file. For example, replace `"example.exe"` in `thirdpatchinstall.ps1` with your EXE filename.
+5. Place the EXE file inside the `tools` folder alongside the scripts. Update the EXE filename references in the scripts so the package can locate the correct file. For example, replace `"template.exe"` in `thirdpatchinstall.ps1` with your EXE filename.
 
-# Templates and Examples
+# Templates
 
 Templates for ZIP, MSI, and EXE packages are available here:
 
 https://github.com/automationtheory/thirdpatch-examples
 
-The repository also includes the example packages referenced above. Template fields that require changes are marked for easier editing, allowing you to download the appropriate package type, customize it, and use it with ThirdPatch once completed.
+The repository contains templates for each package type. Template fields that require changes are marked for easier editing, allowing you to download the appropriate package format, customize it, and use it with ThirdPatch once completed.
