@@ -1,4 +1,4 @@
-# This file MUST be named chocolateyinstall.ps1 or thirdpatchinstall.ps1 and located in the \tools\ subfolder.
+# This file MUST be named thirdpatchinstall.ps1 and located in the \tools\ subfolder.
 
 	# This file is the installation file for the package. It is responsible for installing the ZIP file.
 

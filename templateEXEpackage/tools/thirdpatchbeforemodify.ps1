@@ -1,4 +1,4 @@
-# This file MUST be named chocolateybeforemodify.ps1 or thirdpatchbeforemodify.ps1 and located in the \tools\ subfolder.
+# This file MUST be named thirdpatchbeforemodify.ps1 and located in the \tools\ subfolder.
 
 	
 	# This file is meant to run before the package gets changed, updated, repaired, or removed.
