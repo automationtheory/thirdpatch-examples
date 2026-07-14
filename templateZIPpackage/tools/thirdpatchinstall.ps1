@@ -20,10 +20,10 @@
 	# Extract the ZIP file.
 	Write-Host "$packageName installation started..."
 
-		Get-ChocolateyUnzip `
-			-FileFullPath $zipFile `
-			-Destination $installDir `
-			-PackageName $packageName 
+		Install-ThirdPatchZipPackage `
+			-PackageName $packageName `
+			-File $zipFile `
+			-UnzipLocation $installDir 
 
 	# Print success message.
 	Write-Host "$packageName installation successful."
