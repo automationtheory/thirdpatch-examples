@@ -1,54 +1,62 @@
 ﻿# ThirdPatch Examples and Templates
 
 ## What is ThirdPatch?
-ThirdPatch is an RMM-neutral solution for MSP third-party patching with flat-rate pricing and support for custom applications. ThirdPatch is compatible anywhere Powershell can run, meaning it has ecosystem integrations with a number of RMMs including ConnectWise Automate, Atera, JumpCloud, and more!
+ThirdPatch is an RMM-neutral third-party patching solution for MSPs with flat-rate pricing and support for custom applications. Because it works anywhere PowerShell can run, ThirdPatch integrates with multiple RMM platforms, including ConnectWise Automate, Atera, JumpCloud, and others.
 
 ## What is a package?
-A package is a NuGet file (essentially a ZIP file of sorts), that can install and manage custom applications. By combining basic reusable components like install and uninstall files, a package becomes a quick way to disburse and install custom applications that a business may need. To learn more about packages and how they are created and configured, please refer to the ThirdPatch docs located at: https://docs.thirdpartypatching.com/en/creating-packages. 
+A package is a NuGet file (essentially a ZIP archive) used to install and manage custom applications. By combining reusable components such as install and uninstall scripts, packages provide a simple way to deploy applications a business may need.
 
-The purpose of this repository is to provide some example packages based on different application formats, as well as corresponding template files that work with ThirdPatch that you can simply edit and use!
+For more information on creating and configuring packages, see the ThirdPatch documentation:
+https://docs.thirdpartypatching.com/en/creating-packages
 
-## Example Packages:
+This repository provides example packages for different application formats, along with editable templates that can be customized and used with ThirdPatch.
 
-### ZIP package:
-1. The first element of a package to consider is the .nuspec file. This file contains all of the metadata for the package, such as its version number, package name, and author information. This is pertinent information as it allows the package to be identified and rolled-out correctly.
-(Insert ZIP .nuspec image here)
-2. Next, the thirdpatchinstall.ps1 file is absolutely essential to the proper functioning of your package. This file installs the package by extracting the ZIP file to the desired path. **It is important to note that this file MUST be named thirdpatchinstall.ps1 or chocolateyinstall.ps1 in order for the package to function properly.** 
-(Insert ZIP thirdpatchinstall.ps1 image here)
-3. After the thirdpatchinstall.ps1 file, there are two other optional but recommended files you can include. The first is the thirdpatchuninstall.ps1 file. This file is in charge of uninstalling the package and doing cleanup. This is important if there is a specific way you would like a package to be uninstalled, as it allows for more in-depth clean-up. In the case of a ZIP file-based package, it essentially just clears the folder the package was in, deleting everything. Since ZIP files have no executable uninstallers, this is a good method to remove the package and its related folders entirely. **It is important to note that this file MUST be named thirdpatchuninstall.ps1 or chocolateyuninstall.ps1 in order for the package to function properly.**
-(insert ZIP thirdpatchuninstall.ps1 image here)
-4. The next optional file is the thirdpatchbeforemodify.ps1 file. This file is in charge of ensuring the package can be updated, remove, or otherwise modified successfully BEFORE the modification takes place. This is useful for things like ensuring there is enough disk space before starting the update process, ensuring the right dependencies are installed, or other checking other pertinent information. In the case of a ZIP file-based package, the thirdpatchbeforemodify.ps1 file checks that the folder where the program is installed exists, but other checks can be added if desired. 
-(insert ZIP thirdpatchbeforemodify.ps1 image here).
-5. Lastly, ensure that you have the ZIP file that contains your application inside of the "tools" folder alongside the thirdpatchinstall.ps1 file, and optionally the thirdpatchuninstall.ps1 and thirdpatchbeforemodify.ps1 files. **Please ensure you update the name of the ZIP file inside all three of these files so the package can identify the ZIP file you are using. For example, in thirdpatchinstall.ps1, replace "example.zip" with whatever your ZIP file is named.**
+# Example Packages
 
+## ZIP Package
 
-### MSI Package:
+1. The `.nuspec` file contains package metadata, including version, name, and author information. This allows ThirdPatch to identify and deploy the package correctly.
 
-1. As with the ZIP package, the first file to consider when creating a package for an MSI file is the .nuspec file. This file contains all of the metadata for the package, such as its version number, package name, and author information. This is pertinent information as it allows the package to be identified and rolled-out correctly. This file is the same no matter what type of application file the package uses.
-(Insert MSI .nuspec image here)
-2. Next, the thirdpatchinstall.ps1 file is absolutely essential to the proper functioning of your package. This file installs the package by finding the MSI file, then installing the application according to the MSI file's instructions. **It is important to note that this file MUST be named thirdpatchinstall.ps1 or chocolateyinstall.ps1 in order for the package to function properly.** 
-(Insert MSI thirdpatchinstall.ps1 image here)
-3. After the thirdpatchinstall.ps1 file, there are two other optional but recommended files you can include. The first is the thirdpatchuninstall.ps1 file. This file is in charge of uninstalling the package and doing cleanup. This is important if there is a specific way you would like a package to be uninstalled, as it allows for more in-depth clean-up. In the case of an MSI file-based package, the package will follow the uninstall instructions for the MSI application, and all we have to do is initiate that process. **It is important to note that this file MUST be named thirdpatchuninstall.ps1 or chocolateyuninstall.ps1 in order for the package to function properly.**
-(insert MSI thirdpatchuninstall.ps1 image here)
-4. The next optional file is the thirdpatchbeforemodify.ps1 file. This file is in charge of ensuring the package can be updated, remove, or otherwise modified successfully BEFORE the modification takes place. This is useful for things like ensuring there is enough disk space before starting the update process, ensuring the right dependencies are installed, or other checking other pertinent information. In the case of an MSI file-based package, custom checks can be added if desired to check things like free disk space, required dependencies, etc.
-(insert MSI thirdpatchbeforemodify.ps1 image here).
-5. Lastly, ensure that you have the MSI file that contains your application inside of the "tools" folder alongside the thirdpatchinstall.ps1 file, and optionally the thirdpatchuninstall.ps1 and thirdpatchbeforemodify.ps1 files. **Please ensure you update the name of the MSI file inside all three of these files so the package can identify the MSI file you are using. For example, in thirdpatchinstall.ps1, replace "example.msi" with whatever your MSI file is named.**
+2. The `thirdpatchinstall.ps1` file is required and installs the package by extracting the ZIP file to the desired location. **This file must be named `thirdpatchinstall.ps1` or `chocolateyinstall.ps1` for the package to function properly.**
 
-### EXE Package:
+3. The optional `thirdpatchuninstall.ps1` file manages package removal and cleanup. For ZIP-based packages, it typically removes the installed folder and its contents since ZIP files do not include built-in uninstallers. **This file must be named `thirdpatchuninstall.ps1` or `chocolateyuninstall.ps1` for the package to function properly.**
 
-1. As with the ZIP and MSI packages, the first file to consider when creating a package for an EXE file is the .nuspec file. This file contains all of the metadata for the package, such as its version number, package name, and author information. This is pertinent information as it allows the package to be identified and rolled-out correctly. This file is the same no matter what type of application file the package uses.
-(Insert EXE .nuspec image here)
-2. Next, the thirdpatchinstall.ps1 file is absolutely essential to the proper functioning of your package. This file installs the package by finding the EXE file, then installing the application according to the EXE file's instructions. **It is important to note that this file MUST be named thirdpatchinstall.ps1 or chocolateyinstall.ps1 in order for the package to function properly.** 
-(Insert EXE thirdpatchinstall.ps1 image here)
-3. After the thirdpatchinstall.ps1 file, there are two other optional but recommended files you can include. The first is the thirdpatchuninstall.ps1 file. This file is in charge of uninstalling the package and doing cleanup. This is important if there is a specific way you would like a package to be uninstalled, as it allows for more in-depth clean-up. In the case of an EXE file-based package, the package will follow the uninstall instructions for the EXE application, and all we have to do is initiate that process. **It is important to note that this file MUST be named thirdpatchuninstall.ps1 or chocolateyuninstall.ps1 in order for the package to function properly.**
-(insert EXE thirdpatchuninstall.ps1 image here)
-4. The next optional file is the thirdpatchbeforemodify.ps1 file. This file is in charge of ensuring the package can be updated, remove, or otherwise modified successfully BEFORE the modification takes place. This is useful for things like ensuring there is enough disk space before starting the update process, ensuring the right dependencies are installed, or other checking other pertinent information. In the case of an EXE file-based package, custom checks can be added if desired to check things like free disk space, required dependencies, etc.
-(insert EXE thirdpatchbeforemodify.ps1 image here).
-5. Lastly, ensure that you have the EXE file that contains your application inside of the "tools" folder alongside the thirdpatchinstall.ps1 file, and optionally the thirdpatchuninstall.ps1 and thirdpatchbeforemodify.ps1 files. **Please ensure you update the name of the EXE file inside all three of these files so the package can identify the EXE file you are using. For example, in thirdpatchinstall.ps1, replace "example.exe" with whatever your EXE file is named.**
+4. The optional `thirdpatchbeforemodify.ps1` file performs checks before updates, removals, or other modifications. For ZIP packages, it verifies that the installation folder exists, but additional checks can be added as needed.
 
-## Templates and Examples
+5. Place the application ZIP file inside the `tools` folder alongside the scripts. Update the ZIP filename references in each script so the package can locate the correct file. For example, replace `"example.zip"` in `thirdpatchinstall.ps1` with your ZIP filename.
 
-To find ThirdPatch package templates for all three of these package types, visit https://github.com/automationtheory/thirdpatch-examples. Here, you will also find all three of the example packages used above if you would like to have a closer look at the packages in an example format. In the template versions, fields that must be changed are marked for easier editing and modifications, so you can just download the applicable package format and edit. After your package is completed correctly, they are ready to be used with ThirdPatch!
+---
 
+## MSI Package
 
+1. The `.nuspec` file contains package metadata, including version, name, and author information. This file is the same regardless of application format.
 
+2. The `thirdpatchinstall.ps1` file is required and installs the application by locating and executing the MSI file. **This file must be named `thirdpatchinstall.ps1` or `chocolateyinstall.ps1` for the package to function properly.**
+
+3. The optional `thirdpatchuninstall.ps1` file manages removal and cleanup. For MSI packages, it initiates the uninstall process defined by the MSI. **This file must be named `thirdpatchuninstall.ps1` or `chocolateyuninstall.ps1` for the package to function properly.**
+
+4. The optional `thirdpatchbeforemodify.ps1` file performs checks before updates, removals, or other modifications. Custom checks, such as verifying disk space or dependencies, can be added.
+
+5. Place the MSI file inside the `tools` folder alongside the scripts. Update the MSI filename references in the scripts so the package can locate the correct file. For example, replace `"example.msi"` in `thirdpatchinstall.ps1` with your MSI filename.
+
+---
+
+## EXE Package
+
+1. The `.nuspec` file contains package metadata, including version, name, and author information. This file is the same regardless of application format.
+
+2. The `thirdpatchinstall.ps1` file is required and installs the application by locating and executing the EXE file. **This file must be named `thirdpatchinstall.ps1` or `chocolateyinstall.ps1` for the package to function properly.**
+
+3. The optional `thirdpatchuninstall.ps1` file manages removal and cleanup. For EXE packages, it initiates the uninstall process defined by the application. **This file must be named `thirdpatchuninstall.ps1` or `chocolateyuninstall.ps1` for the package to function properly.**
+
+4. The optional `thirdpatchbeforemodify.ps1` file performs checks before updates, removals, or other modifications. Additional checks, such as verifying disk space or dependencies, can be added as needed.
+
+5. Place the EXE file inside the `tools` folder alongside the scripts. Update the EXE filename references in the scripts so the package can locate the correct file. For example, replace `"example.exe"` in `thirdpatchinstall.ps1` with your EXE filename.
+
+# Templates and Examples
+
+Templates for ZIP, MSI, and EXE packages are available here:
+
+https://github.com/automationtheory/thirdpatch-examples
+
+The repository also includes the example packages referenced above. Template fields that require changes are marked for easier editing, allowing you to download the appropriate package type, customize it, and use it with ThirdPatch once completed.
