@@ -1,4 +1,4 @@
-# This file MUST be named chocolateyinstall.ps1 or thirdpatchinstall.ps1 and located in the \tools\ subfolder.
+# This file MUST be named thirdpatchinstall.ps1 and located in the \tools\ subfolder.
 
 
 
@@ -32,7 +32,7 @@
 			}
 
 	# Install the package. 
-		Install-ChocolateyInstallPackage @packageArgs
+		Install-ThirdPatchInstallPackage @packageArgs
 
 	# Print success message.
 		Write-Host "$packageName installation successful."

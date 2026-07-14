@@ -1,4 +1,4 @@
-# This file MUST be named chocolateyuninstall.ps1 or thirdpatchuninstall.ps1 and located in the \tools\ subfolder.
+# This file MUST be named thirdpatchuninstall.ps1 and located in the \tools\ subfolder.
 
 
 	# This file is responsible for uninstalling the package. It is essentially the inverse of the installation file, and is useful for more in-depth 	
@@ -31,7 +31,7 @@
 				}
 		
 			# Uninstall the package.
-				Uninstall-ChocolatelyPackage @packageArgs
+				Uninstall-ThirdPatchPackage @packageArgs
 
 			# Print success message.
 				Write-Host "$packageName uninstalled successfully."
