@@ -24,7 +24,7 @@ The ZIP, MSI, and EXE templates all use the same basic structure.
 
 3. The optional `thirdpatchuninstall.ps1` file manages application removal and cleanup. **This file must be named `thirdpatchuninstall.ps1` if it is included.**
 
-4. The optional `thirdpatchbeforemodify.ps1` file performs checks before updates, removals, or other package modifications. It can be used to verify prerequisites, dependencies, available disk space, or any other conditions required before continuing.
+4. The optional `thirdpatchbeforemodify.ps1` file performs checks before updates, removals, or other package modifications. It can be used to verify prerequisites, dependencies, available disk space, or any other conditions required before continuing.  **This file must be named `thirdpatchbeforemodify.ps1` if it is included.**
 
 5. Place the application installer or archive inside the `tools` folder alongside the PowerShell scripts. Update the filename references in the scripts to match your application (for example, replace `template.zip`, `template.msi`, or `template.exe` with the appropriate filename).
 
