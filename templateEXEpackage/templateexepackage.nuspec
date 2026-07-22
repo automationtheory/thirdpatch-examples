@@ -1,4 +1,3 @@
-<!-- This declares that the package is using the XML version 1.0. -->
 <?xml version="1.0"?>
 
 <!--This is the starting tag for the root package element, and the xmlns attribute identifies the Nuget/Nuspec schema the file uses. -->
