@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!--This is the starting tag for the root package element, and the xmlns attribute identifies the Nuget/Nuspec schema the file uses. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+
+<!--Here is the start of the metadata section. This section should contain all of the metadata your package needs.-->
+  <metadata>
+
+  	<!-- The ID is the package name, and should be lowercase and match the file name. No spaces or special characters (dashes are fine) -->
+    	<id>package-name-here</id>
+
+	<!-- The version number should be incremented with each edit for the update function to work correctly. If you try to push an update to the server 	with a duplicate version number, you will get an error. -->
+   	<version>1.0.0</version>
+	
+	<!-- This is the package author name, which can be an individual or your MSP name, and can be a handy future reference. -->
+    	<authors>AUTHOR_OR_COMPANY_NAME_HERE</authors>
+
+	<!-- The description describes the package, and is likewise a handy reference, especially when you're trying to sort through multiple packages in 	the future. -->
+   	<description>YOUR_DESCRIPTION_HERE</description>
+
+	<!-- Dependencies are optional, but can be powerful. For example, the software in the package needs a .Net framework version, it will automatically 	be installed if configured as a dependency. -->
+
+	<!--This block of code can be deleted if no dependencies are used-->
+	<dependencies>
+     		 <dependency id="DEPENDENCY_ID_HERE" version="VERSION_NUMBER_HERE" />
+    	</dependencies>
+
+  </metadata>
+</package>
