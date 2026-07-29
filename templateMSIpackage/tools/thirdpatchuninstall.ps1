@@ -8,13 +8,13 @@
 		$ErrorActionPreference = 'Stop'
 
 	# This specifies the package name.
-		$packageName = 'your-package-name'
+		$packageName = 'YOUR_PACKAGE_NAME'
 
 	# Define where the tools folder is.
 		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 
 	# This specifies the MSI file included in the "tools" folder.
-	# Replace REPLACE_ME.msi with the real application MSI.
+	# Replace REPLACE_ME.msi with the real application MSI name.
 		$msiFile = Join-Path $toolsDir 'REPLACE_ME.msi'
 
 
@@ -30,7 +30,7 @@
 				fileType = 'msi'
 				file = $msiFile
 				# MSI silent uninstall arguments.
-				silentArgs = '/qn /norestart'
+				silentArgs = ' /qn /norestart'
 				validExitCodes = @(0, 3010)
 			}
 

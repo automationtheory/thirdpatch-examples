@@ -9,7 +9,7 @@
 		$ErrorActionPreference = 'Stop'
 
 	# This specifies the package name.
-		$packageName = 'your_package_name'
+		$packageName = 'YOUR_PACKAGE_NAME'
 
 	# Define where the tools folder is.
 		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
@@ -26,7 +26,7 @@
 			file = $exeFile
 			# Please ensure you change the silentArgs to the arguments applicable to your EXE, since there are many
 			# different silent arguments that can be used depending on who created the EXE.
-			silentArgs = '/quiet /norestart'
+			silentArgs = ' /silent '
 			validExitCodes = @(0, 3010)
 		} 
 	
