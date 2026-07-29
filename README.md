@@ -34,6 +34,7 @@ The ZIP, MSI, and EXE templates all use the same basic structure.
 
 - The install script extracts the ZIP archive to the desired installation location.
 - Because ZIP files do not include uninstall information, `thirdpatchuninstall.ps1` typically removes the installed files and folders.
+- **It is important to note where you install the program files when using ZIP file format, as it is required when uninstalling the program**.
 
 ### MSI Packages
 

@@ -9,7 +9,7 @@
 		$ErrorActionPreference = 'Stop'
 
 	# This specifies the package name.
-		$packageName = 'your_package_name'
+		$packageName = 'YOUR_PACKAGE_NAME'
 
 	# Define where the tools folder is.
 		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
@@ -27,7 +27,7 @@
 			# MSI silent install arguments can be updated to other silent arguments found here:
 			# Microsoft MSI command-line options:
  			#https://learn.microsoft.com/en-us/windows/win32/msi/standard-installer-command-line-options.
-			silentArgs = '/qn /norestart'
+			silentArgs = '/qn /norestart '
 			validExitCodes = @(0, 3010)
 			}
 
