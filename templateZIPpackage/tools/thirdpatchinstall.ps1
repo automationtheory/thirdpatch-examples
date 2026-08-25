@@ -6,20 +6,26 @@
 		$ErrorActionPreference = 'Stop'
 
 	# This specifies the package name.
-		$packageName = 'your-package-name'
+		$packageName = 'YOUR_PACKAGE_NAME'
 
 	# Define where the tools folder is.
 		$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 
-	# This specifies the ZIP file included in the "tools" folder.
+	# This specifies the ZIP file included in the "tools" folder. Replace "REPLACE_ME" with the name of your ZIP file.
 		$zipFile = Join-Path $toolsDir 'REPLACE_ME.zip'
 
-	# This is the directory where the ZIP contents will be extracted.The 'YOUR_FOLDER_HERE\ExampleZipPackage' folders can be replaced with any other path 	# you want the ZIP contents extracted at. 
-		$installDir = Join-Path $env:ProgramData 'YOUR_FOLDER_NAME\ExampleZipPackage'
+	# This is the directory where the ZIP contents will be extracted.The 'YOUR_FOLDER_HERE' folder can be replaced with any other path 
+	# you want the ZIP contents extracted at. 
+		$installDir = Join-Path $env:ProgramData 'YOUR_FOLDER_HERE'
+	# If the installation folder doesn't exist, create it.
+		if (-not (Test-Path -LiteralPath $installDir)) {
+			New-Item -ItemType Directory -Path $installDir -Force | Out-Null
+		}
 
+	
 	# Extract the ZIP file.
 	Write-Host "$packageName installation started..."
-
+		
 		Install-ThirdPatchZipPackage `
 			-PackageName $packageName `
 			-File $zipFile `

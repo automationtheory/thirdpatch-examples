@@ -9,11 +9,11 @@
 		$ErrorActionPreference = 'Stop'
 
 	# This specifies the package name.
-		$packageName = 'your-package-name'
+		$packageName = 'YOUR_PACKAGE_NAME'
 
 	# This is an example uninstall path.
 	# Replace this with the real application's uninstall path.
-		$uninstallerFile = Join-Path $env:ProgramFiles 'YOUR_FOLDER_HERE\uninstall.exe'
+		$uninstallerFile = Join-Path $env:ProgramFiles 'PROGRAM_FOLDER\uninstall.exe'
 
 	#Uninstall the EXE package.
 		Write-Host "$packageName cleanup started..."
@@ -26,7 +26,7 @@
 				fileType = 'exe'
 				file = $uninstallerFile
 				# Update the silentArgs to match the EXE uninstaller used.
-				silentArgs = '/quiet /norestart'
+				silentArgs = ' /silent '
 				validExitCodes = @(0, 3010)
 				}
 		

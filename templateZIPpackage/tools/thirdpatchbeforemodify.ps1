@@ -7,10 +7,10 @@
 		$ErrorActionPreference = 'Stop'
 
 	# This specifies the package name
-		$packageName = 'your-package-name'
+		$packageName = 'YOUR_PACKAGE_NAME'
 
-	# This is the directory where the ZIP contents were extracted when installed.
-		$installDir = Join-Path $env:ProgramData 'YOUR_FOLDER_NAME\ExampleZipPackage'
+	# This is the directory where the ZIP contents were extracted when installed in the ProgramData folder of your system.
+		$installDir = Join-Path $env:ProgramData 'YOUR_FOLDER_NAME'
 
 	# Run before the package is modified.
 		Write-Host "$packageName before modify has started..."
