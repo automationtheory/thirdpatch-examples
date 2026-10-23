@@ -1,14 +1,25 @@
-﻿# ThirdPatch Templates
+﻿<div align="center">
+<img src="/images/THIRD-PATCH-LOGO.png" style="width: 300px; height: auto;" />
+</div>
+
+# ThirdPatch - Third-Party Patch Management for MSPs
+
+<div align="center"> <a href="https://thirdpartypatching.com/">ThirdPatch Website</a> |
+<a href="https://gallery.thirdpatch.com/">Package Gallery</a> |
+<a href="https://docs.thirdpartypatching.com/">ThirdPatch Docs</a> </div> <br> <br>
+
+
+# ThirdPatch Templates
 
 ## What is ThirdPatch?
 
-ThirdPatch is an RMM-neutral third-party patching solution for MSPs with flat-rate pricing and support for custom applications. Because it works anywhere PowerShell can run, ThirdPatch integrates with multiple RMM platforms, including ConnectWise Automate, Atera, JumpCloud, and others.
+ThirdPatch™ is an RMM-neutral third-party patching solution for MSPs with flat-rate pricing and support for custom applications. Because it works anywhere PowerShell can run, ThirdPatch integrates with multiple RMM platforms, including ConnectWise Automate, Ninja RMM, N-Central, Kaseya VSA, Atera, JumpCloud, and others.
 
 ## What is a package?
 
 A package is a NuGet file (essentially a ZIP archive) used to install and manage custom applications. By combining reusable components such as install and uninstall scripts, packages provide a simple way to deploy applications a business may need.
 
-For more information on creating and configuring packages, see the ThirdPatch documentation:
+For more information on creating and configuring packages, see the ThirdPatch documentation (use the SSO login option and register a user to sign up):
 
 https://docs.thirdpartypatching.com/en/creating-packages
 
@@ -27,6 +38,8 @@ The ZIP, MSI, and EXE templates all use the same basic structure.
 4. The optional `thirdpatchbeforemodify.ps1` file performs checks before updates, removals, or other package modifications. It can be used to verify prerequisites, dependencies, available disk space, or any other conditions required before continuing.  **This file must be named `thirdpatchbeforemodify.ps1` if it is included.**
 
 5. Place the application installer or archive inside the `tools` folder alongside the PowerShell scripts. Update the filename references in the scripts to match your application (for example, replace `template.zip`, `template.msi`, or `template.exe` with the appropriate filename).
+
+6. The final step is to open a terminal, move into the folder with the `.nuspec` file, and run `thirdpatch pack`. This will create a `.nupkg` file which can be uploaded to your custom repository, and then installed with the command: `thirdpatch upgrade <package_name> --source=<repository_url>`
 
 ## Package-Specific Notes
 
